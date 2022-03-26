@@ -17,7 +17,7 @@ pub enum Parsed {
 
 /// parse single line of ini file
 pub fn parse_line(line: &str, index: usize) -> Result<Parsed, ParseError> {
-    let content = match line.split(&[';', '#'][..]).next() {
+    let content = match line.split(&['#'][..]).next() {
         Some(value) => value.trim(),
         None => return Ok(Parsed::Empty),
     };
